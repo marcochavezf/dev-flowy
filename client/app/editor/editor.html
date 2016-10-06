@@ -1,0 +1,68 @@
+<style>
+  .col-xs-12.col-sm-6 {
+    padding: 0;
+    margin: 0;
+  }
+  .row {
+    margin: 0;
+  }
+</style>
+<div id="container">
+
+  <div id="toolbar" class="navbar-default">
+    <!--button class="btn btn-lg btn-primary" ng-click="editor.fileOpen()"> Open</button-->
+    <div class="row">
+
+      <div class="col-xs-6 col-sm-6">
+
+        <div class="col-xs-3 col-sm-3">
+          <div id="palettePane" draw2d-palette>
+          </div>
+        </div>
+
+        <div class="col-xs-9 col-sm-9">
+          <button class="btn btn-lg btn-default" ng-disabled="!editor.state.canUndo" ng-click="editor.undo()">
+            Undo
+          </button>
+          <button class="btn btn-lg btn-default" ng-disabled="!editor.state.canRedo" ng-click="editor.redo()">
+            Redo
+          </button>
+          <button class="btn btn-lg btn-default" ng-disabled="editor.selection.figure==null" ng-click="editor.delete()">
+            Delete
+          </button>
+        </div>
+
+      </div>
+
+      <div class="col-xs-6 col-sm-6">
+
+        <button class="btn btn-lg btn-default" ng-disabled="!editor.hasCodeChanges" ng-click="editor.saveCode()">
+          Save
+        </button>
+
+        <button class="btn btn-lg btn-default" ng-click="editor.runCode()">
+          Run
+        </button>
+      </div>
+
+      <!--div class="col-xs-12 col-sm-5">
+      </div-->
+
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div id="canvas" style="width:100%; height:75vh; background-color: whitesmoke;" draw2d-canvas>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div id="editor" style="width:100%; height:75vh;"></div>
+    </div>
+  </div>
+
+
+
+</div>
